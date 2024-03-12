@@ -1,4 +1,4 @@
-package com.amigoscode.examples;
+package com.amigoscode.examples.ch11;
 
 import com.amigoscode.beans.Car;
 import com.amigoscode.beans.Person;

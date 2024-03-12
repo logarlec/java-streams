@@ -1,4 +1,4 @@
-package com.amigoscode.examples;
+package com.amigoscode.examples.ch10;
 
 import com.amigoscode.beans.Car;
 import com.amigoscode.beans.Person;
@@ -15,8 +15,48 @@ import java.util.stream.Stream;
 public class Filtering {
 
     @Test
-    public void filter() throws Exception {
+    public void filterPrize() throws Exception {
         List<Car> cars = MockData.getCars();
+        List<Car> carsLessThan20k = cars.stream()
+                .filter(car->car.getPrice()< 20_000.00)
+                 .collect(Collectors.toList());
+        carsLessThan20k.forEach(System.out::println);
+
+    }
+
+    @Test
+    public void filterColor() throws Exception {
+        List<Car> cars = MockData.getCars();
+        List<Car> carsLessThan20k = cars.stream()
+                  .filter(car->car.getColor().equals("Yellow"))
+                .collect(Collectors.toList());
+        carsLessThan20k.forEach(System.out::println);
+
+    }
+    @Test
+    public void filterMulti() throws Exception {
+        List<Car> cars = MockData.getCars();
+        List<Car> carsLessThan20k = cars.stream()
+                .filter(car->car.getPrice()< 20_000.00)
+                .filter(car->car.getColor().equals("Yellow"))
+                .collect(Collectors.toList());
+        carsLessThan20k.forEach(System.out::println);
+
+    }
+
+    @Test
+    public void filterWithPredicates() throws Exception {
+        List<Car> cars = MockData.getCars();
+
+        Predicate<Car> pricePredicate = car -> car.getPrice() < 20_000.00;
+        Predicate<Car> colorPredicate = car -> car.getColor().equals("Yellow");
+
+        List<Car> carsLessThan20k = cars.stream()
+                .filter(pricePredicate)
+                .filter(colorPredicate)
+                .collect(Collectors.toList());
+        carsLessThan20k.forEach(System.out::println);
+
     }
 
     @Test

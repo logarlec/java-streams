@@ -5,9 +5,7 @@ import com.amigoscode.mockdata.MockData;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 
 public class GettingStarted {
@@ -22,5 +20,13 @@ public class GettingStarted {
     @Test
     public void declarativeApproachUsingStreams() throws Exception {
         List<Person> people = MockData.getPeople();
+    }
+
+    public static class WorkingWithStreams {
+
+        @Test
+        void steams() {
+            List<String> names = List.of("Amigoscode", "Alex", "Zara");
+        }
     }
 }
